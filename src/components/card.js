@@ -17,6 +17,43 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  // Create the parent div element with the card class
+  const div = document.createElement('div');
+  div.classList.add('card');
+
+  // Create the headline div with the headline class and fill with the headline data
+  const headline = document.createElement('div');
+  headline.classList.add('headline');
+  headline.textContent = article.headline;
+
+  // Create the author div with the author class
+  const author = document.createElement('div');
+  author.classList.add('author');
+
+  // Create the image div with the img-container class
+  const image = document.createElement('div');
+  image.classList.add('img-container');
+
+  // Create the img element with the authorPhoto as the src and append it to the image div
+  const img = document.createElement('img');
+  img.src = article.authorPhoto;
+  image.appendChild(img);
+
+  // Create the authorName span and fill with the authorName data
+  const authorName = document.createElement('span');
+  authorName.textContent = "By " + article.authorName;
+
+  // Append the image and the authorname to the author div
+  author.appendChild(image);
+  author.appendChild(authorName);
+
+  // Append the headline and the author to the parent div
+  div.appendChild(headline);
+  div.appendChild(author);
+
+  // Return the parent div
+  return div;
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +65,7 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
 }
 
 export { Card, cardAppender }
