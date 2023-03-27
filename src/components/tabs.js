@@ -13,6 +13,21 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+  //Create the parent div element with the topics class
+  const div = document.createElement('div');
+  div.classList.add('topics');
+
+  // For each topic in topics, create a new div element with the tab class and fill with the topic, then append it to the parent div
+  for (const topic in topics) {
+    const tab = document.createElement('div');
+    tab.classList.add('tab');
+    tab.innerHTML = topics[topic];
+    div.appendChild(tab);
+  }
+
+  // Return the parent div element
+  return div;
 }
 
 const tabsAppender = (selector) => {
